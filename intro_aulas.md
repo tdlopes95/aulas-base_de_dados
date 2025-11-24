@@ -48,3 +48,9 @@ Null - Representa um valor para um atributo que é actualmente desconhecido ou n
 Integridade da entidade - Numa relação base, nenhum atributo de uma chave primária pode ser nulo.
 Integridade referencial - Se existe uma chave estrangeira em uma relação, ou o valor de chave estrangeira deve corresponder a um
 valor da chave candidata de um tuplo dessa relação ou o valor de chave estrangeira deve ser nula.
+
+Diagrama ER
+Projeto de BD
+1-Relacionamento entre as entidades Diagrama ER;
+2-Refinamento;Normalização;
+3-Implementação de SGBD;
