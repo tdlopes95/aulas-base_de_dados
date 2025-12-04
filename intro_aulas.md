@@ -54,3 +54,20 @@ Projeto de BD
 1-Relacionamento entre as entidades Diagrama ER;
 2-Refinamento;Normalização;
 3-Implementação de SGBD;
+-------------------------------------------------------------------------------------------------------------
+1ªFN
+
+-Separar os grupos que se repetem;
+-Colocar chave primária;
+-Relacionar as tabelas, a chave primária da 1ªtabela irá fazer parte da 2º tabela.
+
+2ªFN
+
+-Tem de estar na 1ªFN;
+-Todos os atributos não chave, têm que depender da totalidade das chaves, caso não se verifique, cria-se uma nova tabela
+
+3ªFN
+
+-Tem de estar na 2ªFN;
+-Analisar se os atributos não chaves não têm dependencias entre si (dependência transitiva), caso exista, criar uma nova tabela;
+
