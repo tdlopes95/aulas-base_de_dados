@@ -1,0 +1,108 @@
+Divisão da linguagem SQL:
+
+-> Linguagem de Definição de Dados (LDD):
+        A LDD fornece comandos para definir esquemas de relação, excluir relações e modificar esquemas;
+-> Linguagem de Manipulação de Dados (LMD):
+        O LMD, inclui uma linguagem de consulta. Também possui comandos para inserir, excluir e modificar dados na BD;
+->  Linguagem de Controle de Dados (LCD):
+        Controla os aspetos de autorização de dados e licenças do utilizador para controlar quem tem acesso para ver ou manipular dados
+-> Linguagem Transação de Dados (LTD):
+        Controla as transações da base de dados.
+
+Passos de criação de uma BD:
+1- Criar a BD;
+    Create Database
+2- "Abrir" a Base de Dados;
+    Use <nome_biblioteca>
+(Adicionar um comentário -> */<texto>*/ ou --)
+3- Criação de tabelas;
+    Create table <nome_livro>
+    nr(nome do atributo) int(tipo de dados:inteiro) primary key, 
+    titulo nvarchar(<numero máximo de caracteres que pode conter> ex:40),
+    autor nvarchar(50),
+    preco money;   ----> ou decimal(10,2) (numero de caracteres, numero de casas decimais)
+
+Inicio do trabalho:
+--nome do trabalho
+--nome do autor
+--data 
+--versão
+
+em SQL:
+
+- New query
+
+1- -- Nome do Exercicio: Biblioteca
+2- -- Nome dos autores: 
+3- -- Data: 12/01/2026
+4- -- Versão: 01
+5-
+6- -- Criação de base de dados
+7- create database Biblioteca 
+    (selecionar linha 7 e "execute") 
+    --------database criada------------
+    (ir à arvore lateral -> databases -> Biblioteca)
+8- --"Abrir" a base de dados
+9- use Biblioteca
+10- go 
+11-
+12- -- Criação das tabelas
+13- create table livro (
+14- nr int primary key,
+15- titulo nvarchar (50),
+16- autor nvarchar (50),
+17- preco money);
+    (selecionar tudo que faz parte da tabela(l13 a l17) -> execute)
+    !!! Para alterar algum atributo incompleto, lado direito do rato na tabela (na arvore) -> design !!!
+18-
+19- create table leitor(
+20- cod int primary key,
+21- nome nvarchar(50),
+22- cpost int,
+23- cidade nvarchar(35));
+24-
+25- create table req(
+26- liv int foreign key references livro(nr),
+27- lei int foreign key references leitor(cod),
+28- datar nvarchar(10) primary key,
+29- datae nvarchar(10));
+30-
+    (executar)
+    (Na arvore->"Database Diagrams"-> lado direito do rato -> "New"-> seleccionar as 3 tabelas -> "Add")
+    --- Diagrama Criado --- (apenas para teste)
+    save as (Biblioteca)
+31- -- Inserção de Informação
+    (lado direito do rato na tabela livro -> edit top 200)
+    iserir dados:
+    1 - SQL - IEFP - 50
+    2 - Exercicios SQL - IEFP - 2 
+    3 - ABC SQL - isla - 12
+    (save all e fechar)
+    (lado direito do rato na tabela -> select top 1000 rows) <- mostra as linhas e no CMD mostra o comando para realizar a operação
+    -> para ver todos os atributos, em vez de colocar todos os atributos, posso colocar "*"
+    exs:
+        SELECT *
+            FROM livro
+
+        SELECT nr, preco
+            FROM livro
+32- insert into leitor values (100,'António', 4400,'Gaia')
+33- insert into leitor values (200,'Maria', 4000,'Porto')
+34- insert into leitor values (300, 'Joaquim', 4000,'Porto'),
+35- (400, 'Francisco', 4000, 'Porto')
+36- 
+37- -- Visualizar a informação de cada tabela
+38- select * from livro
+39- select * from leitor
+40-
+41- -- Visualizar o nome dos leitores cuja cidade seja igual ao Porto
+42- select nome
+43- from leitor
+44- where cidade = 'Porto' or cod<120
+45-
+46- -- Alterar o nome do autor dos livros para Gaya_ISLA para os livros com nº < 3
+48- update livro set autor='Gaya_ISLA'
+49- where nr < 3
+50-
+51- -- Eliminar o livro nº 3
+52- delete from livro where nr=3
