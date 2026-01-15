@@ -106,3 +106,14 @@ em SQL:
 50-
 51- -- Eliminar o livro nº 3
 52- delete from livro where nr=3
+
+www.w3schools.com
+
+create:
+    -Database -> base de dados
+    -Table -> tabela
+Insert -> Inserir registos
+Update -> Alterar informação
+Delete -> Eliminar registos
+Select -> Visualizar informação
+
