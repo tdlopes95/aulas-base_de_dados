@@ -117,3 +117,44 @@ Update -> Alterar informação
 Delete -> Eliminar registos
 Select -> Visualizar informação
 
+create proc(edure) procedure_name {@parameter data_type} [= default][OUTPUT]
+AS
+sql_statement
+
+create procedure show_max
+as
+select MAX(valor) FROM artigos
+
+create procedure set_valor @artigo int, @valor int
+as 
+UPDATE artigos SET vaalor= @valor
+WHERE artigo= @artigo
+
+create procedure return_max @max int OUTPUT
+AS SELECT @max=MAX (valor) FROM artigos 
+
+--------------------------------------------------------
+Subqueries:
+
+Select *
+From livros
+Where num_paginas > (select avg(num_paginas) from livro)  -> subquery para a média
+--------------------------------------------------
+Triggers:
+
+Create trigger <nome>
+On <nome da tabela>
+For <açao> (ex: insert, delete, update)
+As
+Descrever as ações a executar
+From inserted - se a açao for de Inserção
+
+ex:
+Create trigger alinea_a
+On trabalha
+For insert as...
+Declare @e int, @sparcial int
+Select @e =emp_id, @sparcial=percentagem_tempo*salario_hora
+From inserted
+Update empregado set salario = salario+@sparcial
+Where emp_id=@e
